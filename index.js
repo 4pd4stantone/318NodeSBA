@@ -1,16 +1,41 @@
 import express from "express";
 
+import userRoute from "./routes/userRoutes.js";
+
 const app = express();
-
 const port = 3000;
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.send(`Testing 123`)
+
+app.use(express.static("./styles/style.css"))
+
+app.use((req, res, next) => {
+    console.log('middleware');
+    next();
 });
+
+app.use(userRoute)
+
+app.get("/", (req, res) => {
+    console.log(`GET /`)
+    res.render('index');
+});
+
+app.get("/socials", (req, res) => {
+    console.log(`GET /socials`)
+    res.render('socials');
+});
+
+app.get("/ratings", (req, res) => {
+    console.log(`GET /ratings`)
+    res.render('ratings');
+});
+
+
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
-})
+});
 
 
 // Create and use at least two pieces of custom middleware. 5%
