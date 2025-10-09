@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <style>
         nav {
             display: flex;
             border-bottom: 1px black solid;
+            background-color: rgb(117, 0, 0);
+            
         }
         .nav-bar {
             flex-grow: 1;
             width: 100px;
             text-align: center;
             height: 30px;
+            margin-top: 8px;
         }
         a {
             font-size: 20px;
             text-decoration: none;
-            color: black;
+            color: whitesmoke;
             font-weight: bolder;
+        }
+        label, input, .form {
+            display: block;
+            text-align: center;
+            margin:  10px auto 10px auto;
         }
 
     </style>
@@ -38,16 +46,37 @@
     </nav>
     <main>
         <div style="text-align: center; margin-top: 50px;">
-            <h1>Rate Salsa Socials</h1>
+            <h1>Rate Latin Socials</h1>
         </div>
-        <div >
-            <img src="geodance-logo.png" alt="Couple Latin Dancing" style="width: 400px; margin: 0 auto 0 auto; display: block;">
+        <!-- <div >
+            <img src="geodance-logo.png" alt="Couple Latin Dancing" style="width: 400px; margin: 0 auto 50px auto; display: block;">
+        </div> -->
+        <div>
+            <form action="">
+                <h2 class="form">Rate a Social</h2>
+                <br>
+                <label for="Social" >Social Name:</label>
+                <input type="text" required>
+                <label for="">Main Style of Dance:</label>
+                <select name="" id="" class="form">
+                    <option value="Salsa">Salsa</option>
+                    <option value="Bachata">Bachata</option>
+                    <option value="Merengue">Merengue</option>
+                    <option value="Chacha">Chacha</option>
+                </select>
+                <label for="address" >Address:</label>
+                <input type="text">
+                <label for="" >Rating:</label>
+                <input type="number" name="" id="" required min="1" max="10">
+                <label for="">Comments:</label>
+                <textarea name="" id="" class="form"></textarea>
+                <button class="form">Submit</button>
+            </form>
         </div>
     
     </main>
     <footer>
-        <div>
-        </div>
+        
     </footer>
     
 </body>
