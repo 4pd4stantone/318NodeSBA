@@ -23,6 +23,9 @@ router.get("/addSocials", (req, res) => {
     res.render('addSocials', {socials});
 });
 
+
+// Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request. 5%
+
 router.post("/addSocials", (req, res) => {
     console.log(req.body)
     if (req.body.name && req.body.dance && req.body.address) {
@@ -45,6 +48,9 @@ router.post("/addSocials", (req, res) => {
     }
 });
 
+
+// Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request. 5%
+
 router.patch("/addSocials", (req, res) => {
     console.log(req.body)
     if (req.body.name && req.body.address) {
@@ -64,26 +70,21 @@ router.patch("/addSocials", (req, res) => {
     }
 });
 
-router.delete("/addSocials", (req, res, next) => {
+// Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request. 5%
+
+router.delete("/deleteSocials/:id", (req, res, next) => {
     console.log(req.body);
+    let removedSocial = []
     const social = socials.find((u, i) => {
-        if (u.id ==)
-    })
-    if (req.body.name) {
-        const social = socials.find((s) => s.name === req.body.name);
-
-        if (!social) {
-            return res.status(404).json({error: "Social not found"})
+        if (u.id == req.params.id) {
+            const deletedSocial = socials.splice(i, 1);
+            removedSocial.push(deletedSocial)
+            console.log(deletedSocial)
+            return true;
         }
-
-    social.name = req.body.name;
-
-    res.json({
-        message: "Address updated"
-    });
-    } else {
-        res.status(400).json({error: "Insufficient Data"})
-    }
+    })
+    if (social) res.json(removedSocial);
+    else next();
 });
 
 
