@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socials</title>
+    <title>Leave Review</title>
     <style>
          nav {
             display: flex;
@@ -49,26 +49,31 @@
         </div>
     </nav>
     <main>
-        <div style="text-align: center; margin-top: 50px; text-decoration: underline; font-size: 20px;">
-            <h1>Latin Socials</h1>
+        <div style="text-align: center; margin-top: 50px; font-size: 20px;">
+            <h1 style="text-decoration: underline;">Latin Social Ratings & Comments</h1>
         </div>
-            <button style="display: block; width: 150px;
-            margin: 0 auto 0 auto; text-align: center; font-weight: lighter; ">
-                <a href="/socials/addSocials" style="color: black; font-size: 15px;">Add a Social</a>
-            </button>
-               
-            <% if (socials.length > 0) { %>
+        <form action="">
+                <h2 class="form">Leave a Review:</h2>
+                <label for="Name" >Social:</label>
+                <select name="Dance Style" id="" class="form" style="margin: 20px auto 20px auto; width: 150px;">
+                    <% if (socials.length > 0) { %>
                 <% socials.forEach(socials => { %>
                     <br>
-                    <h2 class="social-name" style="text-decoration: underline; color: rgb(117, 0, 0)"><%= socials.name %></h2>
-                    <h4 class="social-name">Main Style of Dance: <%= socials.dance %></h4>
-                    <h4 class="social-name">Address: <%= socials.address %></h4>
-                    <br>
+                        <option value=""><%= socials.name %></option>
 
-            <% }) %>
-            <% } else { %>
-                <p>No Socials to Display</p>
-            <% } %>
+                <% }) %>
+                <% } else { %>
+                    <option value="">No Socials</option>
+                <% } %>
+                </select>
+                <label for="Rating">Rating:</label>
+                <input type="number" name="rating" id="" max="10" min="1" style="width: 50px;" required>
+                <label for="content">Comment:</label>
+                <textarea name="" id="" class="form" style="width: 500px; height: 100px;" required></textarea>
+                 <button class="form" style="width: 100px; margin-top: 30px; margin-bottom: 50px;">Submit</button>
+            </form>
+        
+       
     </main>
     <footer>
     </footer>

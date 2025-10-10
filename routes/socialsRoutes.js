@@ -12,9 +12,13 @@ router.get("/api", (req, res) => {
 
 router.get("/", (req, res) => {
     console.log(`GET /socials`)
-    res.render('socials');
+    res.render('socials', {socials});
 });
 
+router.get("/addSocials", (req, res) => {
+    console.log(`GET /socials/addSocials`)
+    res.render('addSocials', {socials});
+});
 
 
 export default router

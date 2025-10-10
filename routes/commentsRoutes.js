@@ -3,6 +3,7 @@ import express from 'express'
 const router = express.Router()
 
 import comments from "../data/comments.js"
+import socials from '../data/socials.js';
 
 
 
@@ -26,7 +27,12 @@ router.get("/api", (req, res) => {
 
 router.get("/", (req, res) => {
     console.log(`GET /comments`)
-    res.render('comments');
+    res.render('comments', {comments, socials});
+});
+
+router.get("/review", (req, res) => {
+    console.log(`GET /comments/review`)
+    res.render('review', {comments, socials});
 });
 
 

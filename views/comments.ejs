@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings/Comments</title>
+    <style>
+         nav {
+            display: flex;
+            border-bottom: 1px black solid;
+            background-color: rgb(117, 0, 0);
+            
+        }
+        .nav-bar {
+            flex-grow: 1;
+            width: 100px;
+            text-align: center;
+            height: 30px;
+            margin-top: 8px;
+        }
+        a {
+            font-size: 20px;
+            text-decoration: none;
+            color: whitesmoke;
+            font-weight: bolder;
+        }
+        .social-name {
+            /* outline: 1px red solid; */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <a href="/">Home</a>
+        </div>
+        <div class="nav-bar">
+            <a href="/socials">Socials</a>
+        </div>
+        <div class="nav-bar">
+            <a href="/comments">Ratings/Comments</a>
+        </div>
+    </nav>
+    <main>
+        <div style="text-align: center; margin-top: 50px; font-size: 20px;">
+            <h1 style="text-decoration: underline;">Latin Social Ratings & Comments</h1>
+        </div>
+        <div>
+            <button style="display: block; width: 150px;
+            margin: 0 auto 0 auto; text-align: center; font-weight: lighter; ">
+                <a href="/comments/review" style="color: black; font-size: 15px;">Leave a Review</a>
+            </button>
+        </div>
+         <% if (comments.length > 0) { %>
+                <% socials.forEach(socials => { %>
+                    <br>
+                    <h2 class="social-name" style="text-decoration: underline; color: rgb(117, 0, 0)"><%= socials.name %></h2>
+
+                    <% let total = 0;%>
+                    <% let count = 0;%>
+
+                    <% comments.forEach(comments => { %>
+                       <%  if (socials.id == comments.socialId) { %>
+                            <% total += Number(comments.rating) %>
+                            <% count++ %>
+                        <% } %>
+                    <% }) %>
+
+                    <% if (count > 0) { %>
+                        <% const ratingAvg = (total / count).toFixed(1); %>
+                        <% averageRating = ratingAvg %>
+                        <h4 class="social-name" style="color: darkgreen;">Average Rating: <%= averageRating %></h4>
+                        <% } else { %>
+                            <h4 class="social-name" style="color: gray;">No ratings yet.</h4>
+                    <% } %>
+
+                    <% comments.forEach(comments => { %>
+                        <% if (socials.id === comments.socialId) { %>
+                            <h4 class="social-name">Title: <%= comments.title %></h4>
+                            <h4 class="social-name" style="width: 350px; display: block; 
+                            margin: 0 auto 0 auto;">Comment: <%= comments.content %></h4>
+                        <% } %>
+                    <% }) %>
+                    
+                    <br>
+                <% }) %>
+                    
+            <% } else { %>
+                <p>No Ratings/Comments to Display</p>
+            <% } %>
+       
+    </main>
+    <footer>
+    </footer>
+    
+</body>
+</html>

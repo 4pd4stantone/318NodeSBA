@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Socials</title>
     <style>
-        nav {
+         nav {
             display: flex;
             border-bottom: 1px black solid;
             background-color: rgb(117, 0, 0);
@@ -24,18 +24,21 @@
             color: whitesmoke;
             font-weight: bolder;
         }
+        .social-name {
+            /* outline: 1px red solid; */
+            text-align: center;
+        }
         label, input, .form {
             display: block;
             text-align: center;
             margin:  10px auto 10px auto;
-            width: 180px;
         }
 
     </style>
 </head>
 <body>
     <nav>
-      <div class="nav-bar">
+        <div class="nav-bar">
             <a href="/">Home</a>
         </div>
         <div class="nav-bar">
@@ -46,29 +49,26 @@
         </div>
     </nav>
     <main>
-        <div style="text-align: center; margin-top: 20px;">
-            <h1>Rate Latin Socials</h1>
+        <div style="text-align: center; margin-top: 50px; text-decoration: underline; font-size: 20px;">
+            <h1>Add a Latin Social</h1>
         </div>
-        <div >
-            <img src="/geodance-logo.png" alt="Couple Latin Dancing" style="width: 300px; margin: 0px auto 20px auto; display: block;">
-        </div>
-        <div>
-            <form action="">
-                <h2 class="form">Sign-Up to Rate Socials</h2>
-                <br>
-                <label for="Name" >First and Last Name:</label>
+        <form action="Add a Social">
+                <label for="Name" >Social Name:</label>
                 <input type="text" required>
-                <label for="Email">Email:</label>
-                <input type="email" name="email" id="">
-                <label for="Password" >Password:</label>
-                <input type="password" name="" id="">
+                <label for="">Main Style of Dance</label>
+                <select name="Dance Style" id="" class="form" style="margin: 20px auto 20px auto;">
+                    <option value="">Salsa</option>
+                    <option value="">Bachata</option>
+                    <option value="">Chacha</option>
+                    <option value="">Bachata Sensual</option>
+                    <option value="">Merengue</option>
+                </select>
+                <label for="address" >Address:</label>
+                <input type="address" name="address" id="" style="width: 350px;" required>
                 <button class="form" style="width: 100px; margin-top: 30px; margin-bottom: 50px;">Submit</button>
             </form>
-        </div>
-    
     </main>
     <footer>
-        
     </footer>
     
 </body>
