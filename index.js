@@ -1,36 +1,26 @@
 import express from "express";
 
-import userRoute from "./routes/userRoutes.js";
+import socialsRoutes from "./routes/socialsRoutes.js";
+import ratingsRoutes from "./routes/ratingsRoutes.js";
+import commentsRoutes from "./routes/commentsRoutes.js";
 
 const app = express();
 const port = 3000;
 app.set('view engine', 'ejs');
 
+// Create and use at least two pieces of custom middleware. 5%
 
-app.use(express.static("./styles/style.css"))
+app.use(express.static("public"));
+app.use("/comments", commentsRoutes);
+app.use("/ratings", ratingsRoutes);
+app.use("/socials", socialsRoutes);
 
-app.use((req, res, next) => {
-    console.log('middleware');
-    next();
-});
 
-app.use(userRoute)
-
+// Create GET routes for all data that should be exposed to the client. 5%
 app.get("/", (req, res) => {
     console.log(`GET /`)
     res.render('index');
 });
-
-app.get("/socials", (req, res) => {
-    console.log(`GET /socials`)
-    res.render('socials');
-});
-
-app.get("/ratings", (req, res) => {
-    console.log(`GET /ratings`)
-    res.render('ratings');
-});
-
 
 
 app.listen(port, () => {
@@ -38,15 +28,13 @@ app.listen(port, () => {
 });
 
 
-// Create and use at least two pieces of custom middleware. 5%
+
 
 // Create and use error-handling middleware. 5%
 
-// Use at least three different data categories (e.g., users, posts, or comments). 5%
-
 // Utilize reasonable data structuring practices. 5%
 
-// Create GET routes for all data that should be exposed to the client. 5%
+
 
 // Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request. 5%
 
