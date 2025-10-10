@@ -1,7 +1,7 @@
 import express from "express";
 
 import socialsRoutes from "./routes/socialsRoutes.js";
-import ratingsRoutes from "./routes/ratingsRoutes.js";
+import usersRoutes from "./routes/userRoutes.js";
 import commentsRoutes from "./routes/commentsRoutes.js";
 
 const app = express();
@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
 app.use("/comments", commentsRoutes);
-app.use("/ratings", ratingsRoutes);
+app.use("/users", usersRoutes);
 app.use("/socials", socialsRoutes);
 
 
