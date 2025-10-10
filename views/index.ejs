@@ -53,15 +53,18 @@
             <img src="/geodance-logo.png" alt="Couple Latin Dancing" style="width: 300px; margin: 0px auto 20px auto; display: block;">
         </div>
         <div>
-            <form action="">
+            <form action="/" method="POST">
                 <h2 class="form">Sign-Up to Rate Socials</h2>
                 <br>
-                <label for="Name" >First and Last Name:</label>
-                <input type="text" required>
-                <label for="Email">Email:</label>
-                <input type="email" name="email" id="">
-                <label for="Password" >Password:</label>
-                <input type="password" name="" id="">
+                <label for="name" >First and Last Name:</label>
+                <input type="text" id="name" name="name" pattern="^[A-Za-z]+(?:\s+[A-Za-z]+)+$"
+                    title="Please enter at least two names separated by a space." required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address (e.g., name@gmail.com).">
+                <label for="password" >Password:</label>
+                <input type="password" name="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                title="Must be at least 8 characters and include one uppercase letter, one lowercase letter, one number, and one special character.">
                 <button class="form" style="width: 100px; margin-top: 30px; margin-bottom: 50px;">Submit</button>
             </form>
         </div>

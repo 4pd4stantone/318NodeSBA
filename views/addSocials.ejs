@@ -52,18 +52,18 @@
         <div style="text-align: center; margin-top: 50px; text-decoration: underline; font-size: 20px;">
             <h1>Add a Latin Social</h1>
         </div>
-        <form action="Add a Social">
-                <label for="Name" >Social Name:</label>
-                <input type="text" required>
+        <form action="/socials/addSocials" method="POST">
+                <label for="name" >Social Name:</label>
+                <input type="text" name="name" required>
                 <label for="">Main Style of Dance</label>
-                <select name="Dance Style" id="" class="form" style="margin: 20px auto 20px auto;">
-                    <option value="">Salsa</option>
-                    <option value="">Bachata</option>
-                    <option value="">Chacha</option>
-                    <option value="">Bachata Sensual</option>
-                    <option value="">Merengue</option>
+                <select name="dance" id="dance" class="form" style="margin: 20px auto 20px auto;">
+                    <option value="Salsa">Salsa</option>
+                    <option value="Bachata">Bachata</option>
+                    <option value="Chacha">Chacha</option>
+                    <option value="Bachata Sensual">Bachata Sensual</option>
+                    <option value="Merengue">Merengue</option>
                 </select>
-                <label for="address" >Address:</label>
+                <label for="address">Address:</label>
                 <input type="address" name="address" id="" style="width: 350px;" required>
                 <button class="form" style="width: 100px; margin-top: 30px; margin-bottom: 50px;">Submit</button>
             </form>

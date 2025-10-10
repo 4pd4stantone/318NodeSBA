@@ -52,24 +52,26 @@
         <div style="text-align: center; margin-top: 50px; font-size: 20px;">
             <h1 style="text-decoration: underline;">Latin Social Ratings & Comments</h1>
         </div>
-        <form action="">
+        <form action="/comments/review" method="POST">
                 <h2 class="form">Leave a Review:</h2>
                 <label for="Name" >Social:</label>
-                <select name="Dance Style" id="" class="form" style="margin: 20px auto 20px auto; width: 150px;">
+                <select name="socialId" id="socialId" class="form" style="margin: 20px auto 20px auto; width: 150px;">
                     <% if (socials.length > 0) { %>
                 <% socials.forEach(socials => { %>
                     <br>
-                        <option value=""><%= socials.name %></option>
+                        <option value="<%= socials.id %>"><%= socials.name %></option>
 
                 <% }) %>
                 <% } else { %>
                     <option value="">No Socials</option>
                 <% } %>
                 </select>
-                <label for="Rating">Rating:</label>
+                <label for="rating">Rating:</label>
                 <input type="number" name="rating" id="" max="10" min="1" style="width: 50px;" required>
+                <label for="title">Title:</label>
+                <textarea name="title" id="" class="form" style="width: 500px; height: 20px;" required></textarea>
                 <label for="content">Comment:</label>
-                <textarea name="" id="" class="form" style="width: 500px; height: 100px;" required></textarea>
+                <textarea name="content" id="" class="form" style="width: 500px; height: 100px;" required></textarea>
                  <button class="form" style="width: 100px; margin-top: 30px; margin-bottom: 50px;">Submit</button>
             </form>
         

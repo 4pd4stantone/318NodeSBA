@@ -78,9 +78,9 @@
 
                     <% comments.forEach(comments => { %>
                         <% if (socials.id === comments.socialId) { %>
-                            <h4 class="social-name">Title: <%= comments.title %></h4>
                             <h4 class="social-name" style="width: 350px; display: block; 
-                            margin: 0 auto 0 auto;">Comment: <%= comments.content %></h4>
+                            margin: 0 auto 0 auto;">Comment: </h4>
+                            <h4 class="social-name" style="width: 350px;display: block; font-weight: lighter;margin: 10px auto 10px auto;"><%= comments.title %><br><br><%= comments.content %></h4>
                         <% } %>
                     <% }) %>
                     

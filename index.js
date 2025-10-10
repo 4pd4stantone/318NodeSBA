@@ -3,6 +3,7 @@ import express from "express";
 import socialsRoutes from "./routes/socialsRoutes.js";
 import usersRoutes from "./routes/userRoutes.js";
 import commentsRoutes from "./routes/commentsRoutes.js";
+import users from "./data/users.js";
 
 const app = express();
 const port = 3000;
@@ -10,6 +11,8 @@ app.set('view engine', 'ejs');
 
 // Create and use at least two pieces of custom middleware. 5%
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static("public"));
 app.use("/comments", commentsRoutes);
 app.use("/users", usersRoutes);
@@ -20,6 +23,28 @@ app.use("/socials", socialsRoutes);
 app.get("/", (req, res) => {
     console.log(`GET /`)
     res.render('index');
+});
+
+app.post("/", (req, res) => {
+    console.log(req.body)
+    if (req.body.name && req.body.email && req.body.password) {
+        if (users.find((u) => u.email === req.body.email)) {
+            res.json({error: "Account already exists"});
+            return;
+        }
+
+    const user = {
+        id: users[users.length -1].id + 1,
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+    };
+
+    users.push(user);
+    res.json(users[users.length -1]);
+    } else {
+        res.json({error: "Insufficient Data"})
+    }
 });
 
 app.use((req, res) => {
