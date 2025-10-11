@@ -16,6 +16,9 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Use simple CSS to style the rendered views. Note: This is not a test of design; it is a test of serving static files using Express. The CSS can be very simple.2%
+
 app.use(express.static("public"));
 app.use("/comments", commentsRoutes);
 app.use("/users", usersRoutes);
@@ -79,7 +82,7 @@ app.listen(port, () => {
 
 
 
-// Use simple CSS to style the rendered views. Note: This is not a test of design; it is a test of serving static files using Express. The CSS can be very simple.2%
+
 
 // Include a form within a rendered view that allows for interaction with your RESTful API. 3%
 
