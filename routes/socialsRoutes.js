@@ -8,6 +8,23 @@ router.use(express.json());
 
 // Create GET routes for all data that should be exposed to the client. 5%
 
+
+// Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters. Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently. 5%
+
+// using "/api/byDance?dance=Bachata" to return all bachata socials
+router.get("/api/byDance", (req, res) => {
+    let results = socials;
+    const { dance } = req.query;
+
+    if (dance) {
+        results = results.filter(social => social.dance.toLowerCase().includes(dance.toLowerCase()));
+
+    }
+    console.log(`GET /socials/api/byDance`)
+    res.json(results);
+});
+
+
 router.get("/api", (req, res) => {
     console.log(`GET /socials/api`)
     res.json(socials);

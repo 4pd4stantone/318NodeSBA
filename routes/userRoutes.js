@@ -3,7 +3,7 @@ import users from '../data/users.js';
 const router = express.Router();
 
 
-// Create GET routes for all data that should be exposed to the client. 5%
+
 
 // Private information
 router.get("/api", (req, res) => {
